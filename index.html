@@ -298,6 +298,30 @@
             color: #1e3a8a;
             transform: translateX(5px);
         }
+
+            /* Toggle button */
+        .toggle-header-btn {
+          position: fixed;
+          top: 80px; /* adjust as needed */
+          right: 20px;
+          background-color: #800000;
+          color: white;
+          padding: 8px 12px;
+          border-radius: 20px;
+          cursor: pointer;
+          z-index: 1100;
+          font-size: 18px;
+          box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        /* Smooth transition */
+        .header {
+            transition: transform 0.4s ease-in-out;
+        }
+        .header.hidden {
+            transform: translateY(-100%);
+        }
+
         
         /* Church Description */
         .church-description {
@@ -581,6 +605,11 @@
                     <div class="logo-icon">✟</div>
                     <span>St. Mary's Church Kalathoor</span>
                 </div>
+                
+                <div class="toggle-header-btn" onclick="toggleHeader()">
+                    <span id="arrow-icon">⬆️</span>
+                </div>
+
                 <nav>
                     <ul class="nav-menu">
                         <li class="nav-item active">Home</li>
@@ -789,5 +818,35 @@
         });
         
         // Add loading animation effect
-        window.addEventListener('load', function() {
+                   card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    </script>
+    <!-- Your other content -->
+
+<!-- ✅ Add the toggle script before the closing body tag -->
+<script>
+  let headerVisible = true;
+
+  function toggleHeader() {
+    const header = document.querySelector('.header');
+    const arrow = document.getElementById('arrow-icon');
+
+    if (headerVisible) {
+      header.classList.add('hidden');
+      arrow.textContent = '⬇️';
+    } else {
+      header.classList.remove('hidden');
+      arrow.textContent = '⬆️';
+    }
+
+    headerVisible = !headerVisible;
+  }
+</script>
+</body>
+</html>
+
+</body>
+</html>
             
