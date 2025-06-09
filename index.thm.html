@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>St. Mary's Church - Updated Website Wireframe</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: #ffffff;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: white;
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 28px;
+            font-weight: bold;
+            font-family: 'Georgia', serif;
+        }
+        
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, #fbbf24, #f59e0b);
+            border-radius: 50%;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+        }
+        
+        .nav-item {
+            cursor: pointer;
+            padding: 12px 20px;
+            border-radius: 25px;
+            transition: all 0.3s;
+            font-weight: 500;
+            position: relative;
+        }
+        
+        .nav-item:hover {
+            background: rgba(255,255,255,0.15);
+            transform: translateY(-2px);
+        }
+        
+        .nav-item.active {
+            background: rgba(255,255,255,0.2);
+        }
+        
+        .contact-info {
+            font-size: 14px;
+            text-align: right;
+            opacity: 0.9;
+        }
+        
+        /* Main Content */
+        .main-content {
+            margin-top: 90px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(30,58,138,0.7), rgba(59,130,246,0.7)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><linearGradient id="skyGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23dbeafe;stop-opacity:1" /><stop offset="100%" style="stop-color:%23bfdbfe;stop-opacity:1" /></linearGradient></defs><rect width="1200" height="600" fill="url(%23skyGrad)"/><ellipse cx="200" cy="500" rx="150" ry="50" fill="%2322c55e" opacity="0.6"/><ellipse cx="400" cy="520" rx="120" ry="40" fill="%2322c55e" opacity="0.5"/><ellipse cx="800" cy="510" rx="180" ry="60" fill="%2322c55e" opacity="0.7"/><ellipse cx="1000" cy="530" rx="100" ry="35" fill="%2322c55e" opacity="0.4"/><polygon points="600,120 520,320 680,320" fill="%23b91c1c"/><rect x="570" y="320" width="60" height="150" fill="%236b7280"/><rect x="585" y="360" width="15" height="25" fill="%234b5563"/><rect x="605" y="360" width="15" height="25" fill="%234b5563"/><rect x="585" y="390" width="15" height="25" fill="%234b5563"/><rect x="605" y="390" width="15" height="25" fill="%234b5563"/><polygon points="580,340 600,320 620,340" fill="%237c2d12"/><circle cx="600" cy="180" r="18" fill="%23fbbf24"/><rect x="595" y="140" width="10" height="40" fill="%236b7280"/><text x="600" y="550" text-anchor="middle" fill="%234b5563" font-size="20" font-family="serif">Beautiful Church Architecture</text></svg>');
+            background-size: cover;
+            background-position: center;
+            height: 550px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(30,58,138,0.8), rgba(59,130,246,0.6));
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-content h1 {
+            font-size: 52px;
+            margin-bottom: 25px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+            font-family: 'Georgia', serif;
+            font-weight: normal;
+        }
+        
+        .hero-content p {
+            font-size: 22px;
+            margin-bottom: 35px;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.5;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 25px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 15px 35px;
+            border: none;
+            border-radius: 30px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(45deg, #dc2626, #ef4444);
+            color: white;
+            box-shadow: 0 4px 15px rgba(220,38,38,0.4);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 3px solid white;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(45deg, #b91c1c, #dc2626);
+        }
+        
+        .btn-secondary:hover {
+            background: white;
+            color: #1e3a8a;
+        }
+        
+        /* About Section */
+        .about-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 42px;
+            margin-bottom: 60px;
+            color: #1e3a8a;
+            font-family: 'Georgia', serif;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(45deg, #fbbf24, #f59e0b);
+            border-radius: 2px;
+        }
+        
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        
+        .about-card {
+            text-align: center;
+            padding: 40px 30px;
+            background: white;
+            border-radius: 15px;
+            transition: all 0.3s;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(45deg, #1e3a8a, #3b82f6);
+        }
+        
+        .about-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .card-icon {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(45deg, #3b82f6, #1e3a8a);
+            border-radius: 50%;
+            margin: 0 auto 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 35px;
+            color: white;
+            box-shadow: 0 5px 20px rgba(59,130,246,0.3);
+        }
+        
+        .card-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #1e3a8a;
+            font-family: 'Georgia', serif;
+        }
+        
+        .card-description {
+            margin-bottom: 20px;
+            color: #64748b;
+            line-height: 1.7;
+        }
+        
+        .card-link {
+            color: #3b82f6;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
+        }
+        
+        .card-link:hover {
+            color: #1e3a8a;
+            transform: translateX(5px);
+        }
+        
+        /* Church Description */
+        .church-description {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 50px 40px;
+            background: white;
+            border-radius: 20px;
+            margin-bottom: 60px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 1px solid #e2e8f0;
+        }
+        
+        .church-description h3 {
+            font-size: 32px;
+            margin-bottom: 30px;
+            color: #1e3a8a;
+            text-align: center;
+            font-family: 'Georgia', serif;
+        }
+        
+        .church-description p {
+            font-size: 18px;
+            margin-bottom: 20px;
+            line-height: 1.8;
+            color: #4b5563;
+            text-align: justify;
+        }
+        
+        .church-description p:first-of-type::first-letter {
+            font-size: 4em;
+            font-weight: bold;
+            float: left;
+            line-height: 1;
+            margin: 0 8px 0 0;
+            color: #1e3a8a;
+        }
+        
+        /* Administration Section */
+        .admin-section {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            padding: 80px 0;
+            color: white;
+        }
+        
+        .admin-section .section-title {
+            color: white;
+        }
+        
+        .admin-section .section-title::after {
+            background: linear-gradient(45deg, #fbbf24, #f59e0b);
+        }
+        
+        .admin-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+        }
+        
+        .admin-card {
+            background: rgba(255,255,255,0.95);
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+            color: #2c3e50;
+        }
+        
+        .admin-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+        
+        .admin-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #64748b, #475569);
+            margin: 0 auto 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 45px;
+            color: white;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+        
+        .admin-name {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #1e3a8a;
+            font-family: 'Georgia', serif;
+        }
+        
+        .admin-title {
+            color: #64748b;
+            margin-bottom: 20px;
+            font-size: 16px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .admin-bio {
+            margin-bottom: 20px;
+            color: #4b5563;
+            line-height: 1.6;
+        }
+        
+        .admin-contact {
+            font-size: 14px;
+            color: #3b82f6;
+            line-height: 1.5;
+        }
+        
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #1f2937, #374151);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section h4 {
+            margin-bottom: 25px;
+            color: #fbbf24;
+            font-size: 20px;
+            font-family: 'Georgia', serif;
+        }
+        
+        .footer-section p, .footer-section a {
+            color: #d1d5db;
+            text-decoration: none;
+            line-height: 1.8;
+            transition: color 0.3s;
+        }
+        
+        .footer-section a:hover {
+            color: #fbbf24;
+        }
+        
+        .copyright {
+            border-top: 1px solid #4b5563;
+            padding-top: 30px;
+            text-align: center;
+            color: #9ca3af;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .hero-content h1 {
+                font-size: 36px;
+            }
+            
+            .hero-content p {
+                font-size: 18px;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title {
+                font-size: 32px;
+            }
+        }
+        
+        /* Theme Label */
+        .theme-label {
+            position: fixed;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(45deg, #dc2626, #ef4444);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: bold;
+            z-index: 1001;
+            box-shadow: 0 5px 20px rgba(220,38,38,0.4);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: translateX(-50%) scale(1); }
+            50% { transform: translateX(-50%) scale(1.05); }
+        }
+        
+        /* Navigation Indicator */
+        .nav-indicator {
+            position: fixed;
+            right: 25px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.95);
+            padding: 15px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+        
+        .nav-indicator div {
+            padding: 8px 12px;
+            margin: 8px 0;
+            background: #f1f5f9;
+            border-radius: 8px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+            color: #64748b;
+        }
+        
+        .nav-indicator div:hover {
+            background: #3b82f6;
+            color: white;
+            transform: translateX(-5px);
+        }
+    </style>
+</head>
+<body>
+    <div class="theme-label">
+        🎨 CHURCH WEBSITE PRESENTATION - ASTRA/OCEANWP THEME WIREFRAME
+    </div>
+    
+    <div class="nav-indicator">
+        <div onclick="scrollToSection('header')">Header</div>
+        <div onclick="scrollToSection('hero')">Hero</div>
+        <div onclick="scrollToSection('about')">About</div>
+        <div onclick="scrollToSection('description')">Description</div>
+        <div onclick="scrollToSection('admin')">Team</div>
+        <div onclick="scrollToSection('footer')">Footer</div>
+    </div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">✟</div>
+                    <span>St. Mary's Church</span>
+                </div>
+                <nav>
+                    <ul class="nav-menu">
+                        <li class="nav-item active">Home</li>
+                        <li class="nav-item">About Us</li>
+                        <li class="nav-item">Holy Mass Timing</li>
+                        <li class="nav-item">Contact Us</li>
+                        <li class="nav-item">News/Articles</li>
+                        <li class="nav-item">Gallery</li>
+                    </ul>
+                </nav>
+                <div class="contact-info">
+                    📞 (555) 123-4567<br>
+                    📧 info@stmarys.org<br>
+                    📍 123 Church Street, Anytown
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <!-- Hero Section with Church Photo -->
+        <section class="hero" id="hero">
+            <div class="hero-content">
+                <h1>Welcome to St. Mary's Church</h1>
+                <p>Join our loving community in worship, fellowship and service</p>
+                <div class="cta-buttons">
+                    <a href="#" class="btn btn-primary">Join Our Loving Community</a>
+                    <a href="#" class="btn btn-secondary">View Mass Timings</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section with 3 Cards (Removed Our Mission) -->
+        <section class="about-section" id="about">
+            <div class="container">
+                <h2 class="section-title">Discover Our Faith Community</h2>
+                <div class="about-grid">
+                    <div class="about-card">
+                        <div class="card-icon">⛪</div>
+                        <h3 class="card-title">About Our Church</h3>
+                        <p class="card-description">Learn about our rich history, faith traditions, and the welcoming community that makes St. Mary's a special place to worship and grow.</p>
+                        <a href="#" class="card-link">Read More →</a>
+                    </div>
+                    <div class="about-card">
+                        <div class="card-icon">🙏</div>
+                        <h3 class="card-title">Worship Services</h3>
+                        <p class="card-description">Join us for meaningful worship experiences that inspire and strengthen your faith journey through prayer, music, and community.</p>
+                        <a href="#" class="card-link">Mass Timings →</a>
+                    </div>
+                    <div class="about-card">
+                        <div class="card-icon">📺</div>
+                        <h3 class="card-title">YouTube Channel</h3>
+                        <p class="card-description">Watch our services online, inspiring sermons, and special events from anywhere in the world. Stay connected with our community.</p>
+                        <a href="#" class="card-link">Watch Now →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Church Description -->
+        <section class="church-description" id="description">
+            <div class="container">
+                <div class="church-description">
+                    <h3>About St. Mary's Church</h3>
+                    <p>Founded in 1925, St. Mary's Church has been a cornerstone of our community for nearly a century. We are a vibrant, welcoming congregation dedicated to worship, fellowship, and service to others in the name of Jesus Christ.</p>
+                    <p>Our church family believes in the transformative power of faith to change lives and strengthen communities. We strive to create an inclusive environment where everyone can grow spiritually, find their purpose, and discover their place in God's loving family.</p>
+                    <p>Through various ministries, outreach programs, and community service initiatives, we work together to make a positive impact in our neighborhood and beyond. Join us as we continue this journey of faith, hope, and love.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Church Administration -->
+        <section class="admin-section" id="admin">
+            <div class="container">
+                <h2 class="section-title">Church Leadership Team</h2>
+                <div class="admin-grid">
+                    <div class="admin-card">
+                        <div class="admin-photo">👨‍💼</div>
+                        <h3 class="admin-name">Father Michael Johnson</h3>
+                        <p class="admin-title">Senior Pastor</p>
+                        <p class="admin-bio">Leading our congregation with wisdom, compassion, and dedication for over 15 years. Committed to spiritual growth and community building.</p>
+                        <p class="admin-contact">📧 pastor@stmarys.org<br>📞 (555) 123-4567 ext. 101</p>
+                    </div>
+                    <div class="admin-card">
+                        <div class="admin-photo">👩‍💼</div>
+                        <h3 class="admin-name">Sister Catherine Marie</h3>
+                        <p class="admin-title">Assistant Pastor</p>
+                        <p class="admin-bio">Devoted to youth ministry, community outreach programs, and pastoral care. Passionate about connecting faith with action.</p>
+                        <p class="admin-contact">📧 assistant@stmarys.org<br>📞 (555) 123-4567 ext. 102</p>
+                    </div>
+                    <div class="admin-card">
+                        <div class="admin-photo">👨‍💻</div>
+                        <h3 class="admin-name">David Thompson</h3>
+                        <p class="admin-title">Church Administrator</p>
+                        <p class="admin-bio">Managing daily operations, coordinating church activities, and ensuring smooth functioning of all church ministries and programs.</p>
+                        <p class="admin-contact">📧 admin@stmarys.org<br>📞 (555) 123-4567 ext. 103</p>
+                    </div>
+                    <div class="admin-card">
+                        <div class="admin-photo">👥</div>
+                        <h3 class="admin-name">Board of Trustees</h3>
+                        <p class="admin-title">Church Leadership Board</p>
+                        <p class="admin-bio">• John Smith - Chairman<br>• Mary Wilson - Secretary<br>• Robert Davis - Treasurer<br>• Sarah Johnson - Member</p>
+                        <p class="admin-contact">📧 board@stmarys.org<br>📞 (555) 123-4567 ext. 110</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Contact Information</h4>
+                    <p>123 Church Street<br>
+                    Anytown, ST 12345<br>
+                    Phone: (555) 123-4567<br>
+                    Email: info@stmarys.org<br>
+                    Fax: (555) 123-4568</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Service Times</h4>
+                    <p><strong>Sunday Services:</strong><br>
+                    8:00 AM - Early Morning Mass<br>
+                    10:30 AM - Main Service<br>
+                    6:00 PM - Evening Service<br><br>
+                    <strong>Weekday Services:</strong><br>
+                    Wednesday: 7:00 PM<br>
+                    Saturday: 6:00 PM</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <p><a href="#">About Our Church</a><br>
+                    <a href="#">Holy Mass Timings</a><br>
+                    <a href="#">News & Announcements</a><br>
+                    <a href="#">Photo Gallery</a><br>
+                    <a href="#">Contact Us</a><br>
+                    <a href="#">Prayer Requests</a></p>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect With Us</h4>
+                    <p><a href="#">📘 Facebook</a><br>
+                    <a href="#">📺 YouTube Channel</a><br>
+                    <a href="#">📷 Instagram</a><br>
+                    <a href="#">📧 Newsletter Signup</a><br>
+                    <a href="#">📱 Mobile App</a><br>
+                    <a href="#">🎧 Podcast</a></p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 St. Mary's Church. All rights reserved. | Website designed with Astra/OceanWP Theme</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+        
+        // Enhanced navigation interactions
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('click', function() {
+                // Remove active class from all items
+                document.querySelectorAll('.nav-item').forEach(nav => nav.classList.remove('active'));
+                // Add active class to clicked item
+                this.classList.add('active');
+                console.log('Navigate to: ' + this.textContent);
+            });
+        });
+        
+        // Enhanced card hover effects
+        document.querySelectorAll('.about-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px) scale(1.02)';
+                this.style.boxShadow = '0 20px 50px rgba(0,0,0,0.2)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+                this.style.boxShadow = '0 5px 20px rgba(0,0,0,0.08)';
+            });
+        });
+        
+        // Admin card interactions
+        document.querySelectorAll('.admin-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+        
+        // Smooth scroll for CTA buttons
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                if (this.textContent.includes('Mass Timings')) {
+                    console.log('Navigate to Mass Timings page');
+                } else {
+                    console.log('Navigate to: ' + this.textContent);
+                }
+            });
+        });
+        
+        // Add loading animation effect
+        window.addEventListener('load', function() {
+            
